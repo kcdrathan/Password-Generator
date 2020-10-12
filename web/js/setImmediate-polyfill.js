@@ -1,8 +1,3 @@
-/*! by Tom Thorogood <me@tomthorogood.co.uk> */
-/*! This work is licensed under the Creative Commons Attribution 4.0
-International License. To view a copy of this license, visit
-http://creativecommons.org/licenses/by/4.0/ or see LICENSE. */
-
 // setImmediate is a 0-delay setTimeout of sorts introduced
 // by MS and wrongly held back by other browsers
 window.setImmediate || !function (global) {
@@ -42,9 +37,7 @@ window.setImmediate || !function (global) {
 		}
 	}
 	
-	// http://dbaron.org/log/20100309-faster-timeouts
-	// https://github.com/YuzuJS/setImmediate/blob/master/setImmediate.js
-	// https://github.com/kriskowal/q/blob/0428c15d2ffc8e874b4be3a50e92884ef8701a6f/q.js#L125-141
+
 	// If we have messaging channels, or we have postMessage and this
 	// isn't a WebWorker, we can use messaging
 	if (global.MessageChannel || global.postMessage && !global.importScripts && (function () {
@@ -145,7 +138,6 @@ window.setImmediate || !function (global) {
 		return attachTo.clearImmediate = global.cancelAnimationFrame || global.mozCancelAnimationFrame || global.webkitCancelAnimationFrame || global.msCancelAnimationFrame || global.webkitCancelRequestAnimationFrame;
 	}
 	
-	// https://github.com/YuzuJS/setImmediate/blob/master/setImmediate.js
 	// We can use a script tag and the readystatechange event on IE(?)
 	if (global.document && "onreadystatechange" in global.document.getElementsByTagName("script")[0]) {
 		// The numeric identifier of the next dispatched scrypt call
